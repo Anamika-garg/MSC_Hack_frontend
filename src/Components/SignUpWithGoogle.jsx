@@ -1,8 +1,8 @@
 import React from 'react'
-import { doSignInWithGoogle } from '../../firebase/auth';
+import { doSignInWithGoogle } from '../firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import { useAuth } from '../../Context/AuthContext';
+import { useAuth } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 

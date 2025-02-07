@@ -3,7 +3,7 @@ import SignUpWithGoogle from '../Components/SignUpWithGoogle';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer,toast } from 'react-toastify';
 import axios from 'axios';
-import { useAuth } from '../../Context/AuthContext';
+import { useAuth } from '../Context/AuthContext';
 
 const Login = () => {
   const navigate = useNavigate();

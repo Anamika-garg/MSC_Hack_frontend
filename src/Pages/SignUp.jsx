@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '/logo.png'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import { useAuth } from '../../Context/AuthContext';
+import { useAuth } from '../Context/AuthContext';
 
 const SignupPage = () => {
   const {login} = useAuth();
