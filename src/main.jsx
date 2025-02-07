@@ -10,7 +10,8 @@ import { AuthProvider } from '../Context/AuthContext.jsx'
 import Layout from './Pages/Layout.jsx'
 import MoodJournal from './Components/MoodJounal.jsx'
 import Jobs from './Components/Jobs.jsx'
-import FindJobs from './Components/findJobs.jsx'
+import FindJobs from './Components/FindJobs.jsx'
+
 
 
 createRoot(document.getElementById('root')).render(
