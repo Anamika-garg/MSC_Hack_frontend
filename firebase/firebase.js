@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCR2jU61X0LGxDSMF8ZafHrIATHkgJPHNo",
-  authDomain: "blog-project-39099.firebaseapp.com",
-  projectId: "blog-project-39099",
-  storageBucket: "blog-project-39099.appspot.com",
-  messagingSenderId: "1089372486874",
-  appId: "1:1089372486874:web:74f39494af0049844039e3"
+  apiKey: import.meta.env.API_KEY,
+  authDomain:  import.meta.env.AUTH_DOMAIN,
+  projectId:  import.meta.env.PROJECT_ID,
+  storageBucket:  import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID 
 };
 
 // Initialize Firebase
