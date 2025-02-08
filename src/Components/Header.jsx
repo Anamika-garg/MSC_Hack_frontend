@@ -48,19 +48,15 @@ const Header = () => {
                   Journal
                 </Link>
                 <div className="relative group">
-                  <img
-                    src={user?.profileURL || "https://via.placeholder.com/40"}
-                    alt="Profile"
-                    className="w-10 h-10 rounded-full border-2 border-purple-600 cursor-pointer"
-                  />
+                <Link
+                  to="/dashboard"
+                  className="text-gray-700 hover:text-purple-600 transition"
+                >
+                  Dashboard
+                </Link>
                   {/* Dropdown Menu */}
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out z-20">
-                    <Link
-                      to="/profile"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Profile
-                    </Link>
+                    
                     <button
                       onClick={logout}
                       className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
@@ -113,12 +109,7 @@ const Header = () => {
                 Journal
               </Link>
               <Link to="/profile" className="flex items-center px-4 py-2 hover:bg-gray-100">
-                <img
-                  src={user?.profileImage || "https://via.placeholder.com/40"}
-                  alt="Profile"
-                  className="w-8 h-8 rounded-full mr-2 border-2 border-purple-600"
-                />
-                <span className="text-gray-700">{user?.name || "Profile"}</span>
+                Dashboard
               </Link>
               <button
                 onClick={logout}
