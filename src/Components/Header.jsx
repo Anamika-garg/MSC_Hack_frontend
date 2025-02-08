@@ -15,19 +15,19 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex-shrink-0 text-2xl font-bold text-indigo-600">
+          <div className="flex-shrink-0 text-2xl font-bold text-purple-600">
             <Link to="/">AI Career</Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center">
-            <Link to="/jobs" className="text-gray-700 hover:text-indigo-600 transition">
+            <Link to="/jobs" className="text-gray-700 hover:text-purple-600 transition">
              Find Jobs
             </Link>
-            <Link to="/scholarships" className="text-gray-700 hover:text-indigo-600 transition">
+            <Link to="/scholarships" className="text-gray-700 hover:text-purple-600 transition">
               Scholarships
             </Link>
-            <Link to="/resume-review" className="text-gray-700 hover:text-indigo-600 transition">
+            <Link to="/resume-review" className="text-gray-700 hover:text-purple-600 transition">
               Resume Review
             </Link>
 
@@ -35,7 +35,7 @@ const Header = () => {
             {!isAuthenticated ? (
               <Link
                 to="/signup"
-                className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
+                className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
               >
                 Sign Up
               </Link>
@@ -43,7 +43,7 @@ const Header = () => {
               <div className="flex items-center space-x-4">
                 <Link
                   to="/journal"
-                  className="text-gray-700 hover:text-indigo-600 transition"
+                  className="text-gray-700 hover:text-purple-600 transition"
                 >
                   Journal
                 </Link>
@@ -51,7 +51,7 @@ const Header = () => {
                   <img
                     src={user?.profileURL || "https://via.placeholder.com/40"}
                     alt="Profile"
-                    className="w-10 h-10 rounded-full border-2 border-indigo-600 cursor-pointer"
+                    className="w-10 h-10 rounded-full border-2 border-purple-600 cursor-pointer"
                   />
                   {/* Dropdown Menu */}
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out z-20">
@@ -100,7 +100,7 @@ const Header = () => {
           {!isAuthenticated ? (
             <Link
               to="/signup"
-              className="block px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 transition"
+              className="block px-4 py-2 text-white bg-purple-600 hover:bg-purple-700 transition"
             >
               Sign Up
             </Link>
@@ -116,7 +116,7 @@ const Header = () => {
                 <img
                   src={user?.profileImage || "https://via.placeholder.com/40"}
                   alt="Profile"
-                  className="w-8 h-8 rounded-full mr-2 border-2 border-indigo-600"
+                  className="w-8 h-8 rounded-full mr-2 border-2 border-purple-600"
                 />
                 <span className="text-gray-700">{user?.name || "Profile"}</span>
               </Link>

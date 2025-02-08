@@ -11,7 +11,7 @@ const Hero = () => {
         </p>
         <div className="mt-6">
           <Button className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full text-lg">Get Started</Button>
-          <Button variant="outline" className="ml-4 px-6 py-3 rounded-full text-lg border-white text-white hover:bg-white hover:text-blue-500">
+          <Button variant="outline" className="ml-4 px-6 py-3 rounded-full text-lg border-white text-white hover:bg-white hover:text-purple-500">
             Explore More
           </Button>
         </div>

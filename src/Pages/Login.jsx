@@ -76,27 +76,27 @@ const Login = () => {
               <button 
                 type="submit" 
                 onClick={submitHandler}
-                className="p-3 text-base bg-indigo-600 text-white rounded-md hover:bg-indigo-500"
+                className="p-3 text-base bg-purple-600 text-white rounded-md hover:bg-purple-500"
               >
                 Login
               </button>
             </form>
             {/* <p className="mt-3 text-sm text-gray-600">Or Sign Up With</p> */}
-            <div className="flex justify-center mt-2 space-x-4 text-indigo-600">
+            <div className="flex justify-center mt-2 space-x-4 text-purple-600">
               <a href="#" className="hover:underline">
                 <SignUpWithGoogle/>
               </a>
             </div>
             <p className="mt-3 text-sm text-gray-600">
               Don't have an account? 
-              <Link to={"/signup"} className="text-indigo-600 hover:underline"> Sign Up</Link>
+              <Link to={"/signup"} className="text-purple-600 hover:underline"> Sign Up</Link>
             </p>
           </div>
         </div>
            {/* Left Panel */}
-           <div className="flex-1 bg-indigo-100 justify-center items-center hidden md:flex">
+           <div className="flex-1 bg-purple-100 justify-center items-center hidden md:flex">
           <div className="text-center max-w-xs">
-            <h1 className="text-2xl text-indigo-600 mb-2">5 Minute School</h1>
+            <h1 className="text-2xl text-purple-600 mb-2">5 Minute School</h1>
             <p className="text-lg text-gray-800">Learn From World's Best Instructors Around The World.</p>
             {/* <div className="mt-5">
               <img 

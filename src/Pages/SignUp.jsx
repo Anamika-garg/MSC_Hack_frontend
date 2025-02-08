@@ -59,12 +59,12 @@ const SignupPage = () => {
       <ToastContainer/>
       <div className="flex w-4/5 h-4/5 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row flex-col mt-[40px] md:mt-0">
         {/* Left Panel */}
-        <div className="flex-1 bg-indigo-100 justify-center items-center flex-col hidden md:flex">
+        <div className="flex-1 bg-purple-100 justify-center items-center flex-col hidden md:flex">
           <div className="img overflow-hidden">
             <img src={logo} alt="" className='h-[300px]' />
           </div>
           <div className="text-center max-w-xs">
-            <h1 className="text-2xl text-indigo-600 mb-2 font-bold">EvolveX</h1>
+            <h1 className="text-2xl text-purple-600 mb-2 font-bold">EvolveX</h1>
             <p className="text-lg text-gray-800">Your one-stop destination for internships, courses, scholarships, and career growth—unlock your future with us.</p>
             {/* <div className="mt-5">
               <img 
@@ -119,22 +119,22 @@ const SignupPage = () => {
               </div>
               <button
                 type="submit"
-                className="p-3 text-base bg-indigo-600 text-white rounded-md hover:bg-indigo-500"
+                className="p-3 text-base bg-purple-600 text-white rounded-md hover:bg-purple-500"
                 onClick={submitHandler}
               >
                 Sign Up
               </button>
             </form>
             {/* <p className="mt-3 text-sm text-gray-600">Or Sign Up With</p> */}
-            <div className="flex justify-center mt-2 space-x-4 text-indigo-600">
+            <div className="flex justify-center mt-2 space-x-4 text-purple-600">
               <a href="#" className="hover:underline">
                 <SignUpWithGoogle />
               </a>
             </div>
             <p className="mt-3 text-sm text-gray-600">
               Already have an account?
-              {/* <a href="/login" className="text-indigo-600 hover:underline">Sign in</a> */}
-              <Link to={"/login"} className="text-indigo-600 hover:underline"> Sign in</Link>
+              {/* <a href="/login" className="text-purple-600 hover:underline">Sign in</a> */}
+              <Link to={"/login"} className="text-purple-600 hover:underline"> Sign in</Link>
             </p>
           </div>
         </div>
