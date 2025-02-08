@@ -10,7 +10,7 @@ import { AuthProvider } from './Context/AuthContext.jsx'
 import Layout from './Pages/Layout.jsx'
 import MoodJournal from './Components/MoodJounal.jsx'
 import Jobs from './Components/Jobs.jsx'
-import FindJobs from './Components/findJobs.jsx'
+import FindJobs from './Components/FindJobs.jsx'
 
 
 
@@ -25,7 +25,7 @@ createRoot(document.getElementById('root')).render(
             <Route path={'/login'} element={<Login />} />
             <Route path={'/signup'} element={<SignUpPage />} />
             <Route path={'/complete'} element={<CompleteProfile />} />
-            <Route path={'/FindJobs'} element={<FindJobs />} />
+            <Route path={'/findJobs'} element={<FindJobs />} />
             <Route path={'/journal'} element={<MoodJournal />} />
             <Route path={'/jobs'} element={<Jobs />} />
           </Route>
