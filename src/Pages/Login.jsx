@@ -46,13 +46,13 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <ToastContainer/>
-      <div className="flex w-4/5 h-4/5 bg-white rounded-lg shadow-lg overflow-hidden flex-col md:flex-row">
+      <div className="flex w-4/5 min-h-[10px] bg-white rounded-lg shadow-lg gap-[10px] overflow-hidden md:flex-row flex-col mt-[40px] md:mt-0">
      
         {/* Right Panel */}
         <div className="flex-1 flex justify-center items-center p-3">
           <div className="w-4/5 max-w-sm text-center">
-            <h2 className="text-2xl text-gray-800 mb-5 font-bold">Login</h2>
-            <form className="flex flex-col gap-3">
+            <h2 className="text-2xl text-gray-800 mb-5 font-bold mt-[10px]">Login</h2>
+            <form className="flex flex-col gap-[15px]">
              
               <input 
                 type="email" 
@@ -94,7 +94,7 @@ const Login = () => {
           </div>
         </div>
            {/* Left Panel */}
-           <div className="flex-1 bg-indigo-100 flex justify-center items-center">
+           <div className="flex-1 bg-indigo-100 flex justify-center items-center invisible md:visible">
           <div className="text-center max-w-xs">
             <h1 className="text-2xl text-indigo-600 mb-2">5 Minute School</h1>
             <p className="text-lg text-gray-800">Learn From World's Best Instructors Around The World.</p>

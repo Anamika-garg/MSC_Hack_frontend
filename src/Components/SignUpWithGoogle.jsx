@@ -52,7 +52,7 @@ const SignUpWithGoogle = () => {
 return (
     <>
         <ToastContainer />
-        <button className='border-blue-400 border-2 font-semibold flex items-center justify-center text-black px-4 py-2 rounded-md  transition-all w-[320px]' onClick={googleSignInHandler}>
+        <button className='border-blue-400 border-2 font-semibold flex items-center justify-center text-black px-4 py-2 rounded-md  transition-all w-[250px]' onClick={googleSignInHandler}>
             <FcGoogle className='inline h-[30px] w-[30px] mr-2 '/>
             Continue With Google
             </button>

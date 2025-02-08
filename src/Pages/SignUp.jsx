@@ -57,9 +57,9 @@ const SignupPage = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <ToastContainer/>
-      <div className="flex w-4/5 h-4/5 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row flex-col">
+      <div className="flex w-4/5 h-4/5 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row flex-col mt-[40px] md:mt-0">
         {/* Left Panel */}
-        <div className="flex-1 bg-indigo-100 flex justify-center items-center flex-col">
+        <div className="flex-1 bg-indigo-100 justify-center items-center flex-col hidden md:visible">
           <div className="img overflow-hidden">
             <img src={logo} alt="" className='h-[300px]' />
           </div>
@@ -78,7 +78,7 @@ const SignupPage = () => {
 
         {/* Right Panel */}
         <div className="flex-1 flex justify-center items-center p-3">
-          <div className="w-4/5 max-w-sm text-center">
+          <div className="md:w-4/5 w-[100%] text-center">
             <h2 className="text-2xl text-gray-800 mb-5 font-bold">Create Account</h2>
             <form className="flex flex-col gap-3">
               <input
