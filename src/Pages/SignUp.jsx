@@ -20,35 +20,35 @@ const SignupPage = () => {
 
   const submitHandler = async(e) => {
     e.preventDefault();
-    navigate('/')
-    // navigate('/complete');
-    // if(!formData.checkbox){
-    //   toast.error('Please accept terms and condition');
-    //   return
-    // }
-    // const data = new FormData();
-    // data.append('fullName' , formData.fullName)
-    // data.append('email' , formData.email)
-    // data.append('password' , formData.password)
-    // data.append('confirmPassword' , formData.confirmPassword);
-    // try{
-    //   const response = await axios.post(`${import.meta.env.VITE_BACKEND_USER_URL}/register` , data , {
-    //     headers : {
-    //       "Content-Type" : 'application/json'
-    //     }
-    //   })
+    // navigate('/')
+    navigate('/complete');
+    if(!formData.checkbox){
+      toast.error('Please accept terms and condition');
+      return
+    }
+    const data = new FormData();
+    data.append('fullName' , formData.fullName)
+    data.append('email' , formData.email)
+    data.append('password' , formData.password)
+    data.append('confirmPassword' , formData.confirmPassword);
+    try{
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_USER_URL}/register` , data , {
+        headers : {
+          "Content-Type" : 'application/json'
+        }
+      })
       
-    //   console.log(response);
-    //   login(response.data.token , response.data.user)
-    //   toast.success(response.data.success);
-    //   setTimeout(()=>{
-    //     navigate('/complete');
-    //   },1500)
-    // }
-    // catch(err){
-    //   console.log(err);
-    //   toast.error( err.response.data.error || 'Some Error Occured!')
-    // }
+      console.log(response);
+      login(response.data.token , response.data.user)
+      toast.success(response.data.success);
+      setTimeout(()=>{
+        navigate('/complete');
+      },1500)
+    }
+    catch(err){
+      console.log(err);
+      toast.error( err.response.data.error || 'Some Error Occured!')
+    }
   }
 
   const changeHandler = (e) =>{

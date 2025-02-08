@@ -19,28 +19,28 @@ const Login = () => {
 
   const submitHandler = async(e)=>{
     e.preventDefault();
-    navigate('/')
-    // try{
-    //   const data = new FormData();
-    //   data.append('email' , formData.email);
-    //   data.append('password' , formData.password);
-    //   const response = await axios.post(`${import.meta.env.VITE_BACKEND_USER_URL}/login` , data , {
-    //     headers : {
-    //       "Content-Type" : 'application/json'
-    //     }
-    //   })
+    // navigate('/')
+    try{
+      const data = new FormData();
+      data.append('email' , formData.email);
+      data.append('password' , formData.password);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_USER_URL}/login` , data , {
+        headers : {
+          "Content-Type" : 'application/json'
+        }
+      })
       
-    //   console.log(response);
-    //   login(response.data.token , response.data.user)
-    //   toast.success(response.data.success)
-    //   setTimeout(()=>{
-    //     navigate('/');
-    //   },1500)
-    // }
-    // catch(err){
-    //   console.log(err);
-    //   toast.error( err.response.data.error || 'Some Error Occured!')
-    // }
+      console.log(response);
+      login(response.data.token , response.data.user)
+      toast.success(response.data.success)
+      setTimeout(()=>{
+        navigate('/');
+      },1500)
+    }
+    catch(err){
+      console.log(err);
+      toast.error( err.response.data.error || 'Some Error Occured!')
+    }
   }
 
   return (
