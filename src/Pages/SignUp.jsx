@@ -59,7 +59,7 @@ const SignupPage = () => {
       <ToastContainer/>
       <div className="flex w-4/5 h-4/5 bg-white rounded-lg shadow-lg overflow-hidden md:flex-row flex-col mt-[40px] md:mt-0">
         {/* Left Panel */}
-        <div className="flex-1 bg-indigo-100 justify-center items-center flex-col hidden md:visible">
+        <div className="flex-1 bg-indigo-100 justify-center items-center flex-col hidden md:flex">
           <div className="img overflow-hidden">
             <img src={logo} alt="" className='h-[300px]' />
           </div>

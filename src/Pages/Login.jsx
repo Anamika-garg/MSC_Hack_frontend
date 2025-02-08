@@ -94,7 +94,7 @@ const Login = () => {
           </div>
         </div>
            {/* Left Panel */}
-           <div className="flex-1 bg-indigo-100 flex justify-center items-center invisible md:visible">
+           <div className="flex-1 bg-indigo-100 justify-center items-center hidden md:flex">
           <div className="text-center max-w-xs">
             <h1 className="text-2xl text-indigo-600 mb-2">5 Minute School</h1>
             <p className="text-lg text-gray-800">Learn From World's Best Instructors Around The World.</p>
