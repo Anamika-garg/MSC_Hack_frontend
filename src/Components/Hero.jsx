@@ -4,7 +4,7 @@ import Button from '../Components/Button';
 const Hero = () => {
   return (
     <>
-        <section className="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white mt-[75px]">
+        <section className="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white mt-[75px] px-2">
         <h1 className="text-4xl font-bold mb-4">Empowering Youth with AI Solutions</h1>
         <p className="text-lg max-w-2xl mx-auto">
           Discover personalized career paths, improve mental well-being, connect with young creators, and enhance learning with our AI-powered platforms.
