@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import pdfToText from 'react-pdftotext';
+import * as pdfToText from './node_modules/react-pdftotext/index.js';
+
 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
