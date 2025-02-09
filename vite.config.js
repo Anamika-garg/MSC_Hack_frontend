@@ -22,5 +22,6 @@ export default defineConfig({
   },
   optimizeDeps: {  // Add this to exclude pdfjs-dist from optimization
     exclude: ['pdfjs-dist'],
+    include: ['react-pdftotext'] // Force Vite to pre-bundle this dependency
   },
 });
