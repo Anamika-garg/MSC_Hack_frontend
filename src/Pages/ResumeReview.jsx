@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import pdfToText from 'react-pdftotext';
+import PdfToText from 'react-pdftotext';
+
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +18,7 @@ export default function ResumeReview() {
       setFile(selectedFile);
       setIsProcessing(true); // Start processing when the file is uploaded
 
-      pdfToText(selectedFile)
+      PdfToText(selectedFile)
         .then(text => {
           setData(text);
           setIsProcessing(false); // Text extraction complete
