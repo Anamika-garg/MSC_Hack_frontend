@@ -15,6 +15,7 @@ import Profile from './Pages/Profile.jsx'
 import ResumeReview from './Pages/ResumeReview.jsx'
 import ResumeReviewResult from './Components/ResumeReviewResult.jsx'
 import Community from './Pages/Community.jsx'
+import CoursePage from './Pages/CoursePage.jsx'
 
 
 
@@ -36,6 +37,7 @@ createRoot(document.getElementById('root')).render(
             <Route path={'/resume-review'} element={<ResumeReview />} />
             <Route path={'/resume-review-result'} element={<ResumeReviewResult />} />
             <Route path={'/community'} element={<Community />} />
+            <Route path={'/courses'} element={<CoursePage />} />
           </Route>
         </Routes>
       </BrowserRouter>

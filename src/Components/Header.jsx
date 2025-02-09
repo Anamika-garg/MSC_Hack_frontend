@@ -27,9 +27,9 @@ const Header = () => {
             {/* <Link to="/community" className="text-gray-700 hover:text-purple-600 transition">
               Community
             </Link> */}
-            {/* <Link to="/scholarships" className="text-gray-700 hover:text-purple-600 transition">
-              Scholarships
-            </Link> */}
+            <Link to="/courses" className="text-gray-700 hover:text-purple-600 transition">
+              Courses
+            </Link>
             <Link to="/resume-review" className="text-gray-700 hover:text-purple-600 transition">
               Resume Review
             </Link>
@@ -91,9 +91,9 @@ const Header = () => {
           <Link to="/jobs" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
            Find Jobs
           </Link>
-          {/* <Link to="/scholarships" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-            Scholarships
-          </Link> */}
+          <Link to="/courses" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            Courses
+          </Link>
           <Link to="/resume-review" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
             Resume Review
           </Link>
