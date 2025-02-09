@@ -12,6 +12,8 @@ import MoodJournal from './Components/MoodJounal.jsx'
 import Jobs from './Components/Jobs.jsx'
 import FindJobs from './Components/FindJobs.jsx'
 import Profile from './Pages/Profile.jsx'
+import ResumeReview from './Pages/ResumeReview.jsx'
+import ResumeReviewResult from './Components/ResumeReviewResult.jsx'
 
 
 
@@ -30,6 +32,8 @@ createRoot(document.getElementById('root')).render(
             <Route path={'/journal'} element={<MoodJournal />} />
             <Route path={'/jobs'} element={<Jobs />} />
             <Route path={'/dashboard'} element={<Profile />} />
+            <Route path={'/resume-review'} element={<ResumeReview />} />
+            <Route path={'/resume-review-result'} element={<ResumeReviewResult />} />
           </Route>
         </Routes>
       </BrowserRouter>
