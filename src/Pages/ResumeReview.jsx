@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as pdfToText from './node_modules/react-pdftotext/index.js';
+import {pdfToText} from 'react-pdftotext';
 
 
 import axios from 'axios';
