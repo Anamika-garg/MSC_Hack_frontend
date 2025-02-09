@@ -24,9 +24,12 @@ const Header = () => {
             <Link to="/jobs" className="text-gray-700 hover:text-purple-600 transition">
              Find Jobs
             </Link>
-            <Link to="/scholarships" className="text-gray-700 hover:text-purple-600 transition">
+            {/* <Link to="/community" className="text-gray-700 hover:text-purple-600 transition">
+              Community
+            </Link> */}
+            {/* <Link to="/scholarships" className="text-gray-700 hover:text-purple-600 transition">
               Scholarships
-            </Link>
+            </Link> */}
             <Link to="/resume-review" className="text-gray-700 hover:text-purple-600 transition">
               Resume Review
             </Link>
@@ -47,7 +50,10 @@ const Header = () => {
                 >
                   Journal
                 </Link>
-                <div className="relative group">
+                
+                <Link to="/community" className="text-gray-700 hover:text-purple-600 transition">
+              Community
+            </Link>
                 <Link
                   to="/dashboard"
                   className="text-gray-700 hover:text-purple-600 transition"
@@ -64,7 +70,7 @@ const Header = () => {
                       Logout
                     </button>
                   </div>
-                </div>
+                
               </div>
             )}
           </div>
@@ -85,9 +91,9 @@ const Header = () => {
           <Link to="/jobs" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
            Find Jobs
           </Link>
-          <Link to="/scholarships" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+          {/* <Link to="/scholarships" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
             Scholarships
-          </Link>
+          </Link> */}
           <Link to="/resume-review" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
             Resume Review
           </Link>
@@ -108,8 +114,11 @@ const Header = () => {
               >
                 Journal
               </Link>
-              <Link to="/profile" className="flex items-center px-4 py-2 hover:bg-gray-100">
+              <Link to="/dashboard" className="flex items-center px-4 py-2 hover:bg-gray-100">
                 Dashboard
+              </Link>
+              <Link to="/community" className="flex items-center px-4 py-2 hover:bg-gray-100">
+                Community
               </Link>
               <button
                 onClick={logout}
