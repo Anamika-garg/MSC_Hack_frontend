@@ -10,7 +10,7 @@ export default function MoodTrackerJournal() {
     const [newAffirmation, setNewAffirmation] = useState('');
     const [loading, setLoading] = useState(false);
     const [previousEntries, setPreviousEntries] = useState([]);
-    const [selectedEntry, setSelectedEntry] = useState(null);  // To highlight selected entry
+    const [selectedEntry, setSelectedEntry] = useState(null);
 
     useEffect(() => {
         fetchJournals();
@@ -23,7 +23,6 @@ export default function MoodTrackerJournal() {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
             });
-            console.log(res.data.Journals);
             setPreviousEntries(res.data.Journals);
         } catch (err) {
             console.log(err);
@@ -31,7 +30,6 @@ export default function MoodTrackerJournal() {
     }
 
     const moods = ['😊', '😐', '😭', '😡', '😪', '😍', '🤔', '😤', '🤩', '🥳'];
-
 
     const handleMoodClick = (selectedMood) => {
         setMood(selectedMood);
@@ -60,7 +58,6 @@ export default function MoodTrackerJournal() {
             setMood('');
             setJournalEntry('');
 
-            // Save the new entry with affirmations in previous entries
             setPreviousEntries([
                 { mood, moodText: journalEntry, affirmations: parsedAffirmations },
                 ...previousEntries
@@ -81,9 +78,8 @@ export default function MoodTrackerJournal() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row mt-[70px]">
-            {/* Sidebar */}
-            <aside className="md:w-64 w-full bg-white shadow-lg p-4 mb-4 md:mb-0">
+        <div className="min-h-screen bg-white flex flex-col md:flex-row mt-[70px] text-purple-800">
+            <aside className="md:w-64 w-full bg-purple-100 shadow-lg p-4 mb-4 md:mb-0 rounded-lg">
                 <h2 className="text-lg font-semibold mb-4 text-center md:text-left">Previous Entries</h2>
                 <ul className="space-y-2">
                     {previousEntries.length > 0 ? (
@@ -91,7 +87,7 @@ export default function MoodTrackerJournal() {
                             <li
                                 key={idx}
                                 className={`p-3 border rounded-lg cursor-pointer transition ${
-                                    selectedEntry === idx ? 'bg-blue-200' : 'bg-gray-50 hover:bg-blue-100'
+                                    selectedEntry === idx ? 'bg-purple-300' : 'bg-white hover:bg-purple-200'
                                 }`}
                                 onClick={() => {
                                     setAffirmations(entry.affirmations);
@@ -104,20 +100,18 @@ export default function MoodTrackerJournal() {
                             </li>
                         ))
                     ) : (
-                        <p className="text-gray-500 text-center md:text-left">No previous entries</p>
+                        <p className="text-purple-500 text-center md:text-left">No previous entries</p>
                     )}
                 </ul>
             </aside>
 
-            {/* Main Content */}
             <div className="flex-1 p-4 md:p-8 flex flex-col items-center">
-                <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 mt-4">Mood Tracker & Journal</h1>
+                <h1 className="text-3xl font-bold mb-6 mt-4 text-purple-900">Mood Tracker & Journal</h1>
 
-                {/* Affirmations Section (Only Shows When Generated) */}
                 {affirmations.length > 0 && (
-                    <Card className="w-full max-w-xl p-4 shadow-md mb-4 md:mb-6 bg-green-50 border-l-4 border-green-400">
-                        <h2 className="text-lg md:text-xl font-semibold mb-4">Daily Affirmations</h2>
-                        <ul className="list-disc pl-5 mb-4 text-sm md:text-base">
+                    <Card className="w-full max-w-xl p-4 shadow-md mb-6 bg-purple-50 border-l-4 border-purple-400">
+                        <h2 className="text-xl font-semibold mb-4">Daily Affirmations</h2>
+                        <ul className="list-disc pl-5 mb-4 text-base">
                             {affirmations.map((affirmation, idx) => (
                                 <li key={idx} className='text-[18px]'>{affirmation}</li>
                             ))}
@@ -125,14 +119,13 @@ export default function MoodTrackerJournal() {
                     </Card>
                 )}
 
-                {/* Mood Selection */}
-                <div className="w-full max-w-xl mb-4 md:mb-6 p-4 shadow-md bg-white rounded-lg">
-                    <h2 className="text-lg md:text-xl font-semibold mb-4">How are you feeling today?</h2>
+                <div className="w-full max-w-xl mb-6 p-4 shadow-md bg-white rounded-lg border border-purple-300">
+                    <h2 className="text-xl font-semibold mb-4">How are you feeling today?</h2>
                     <div className="flex justify-around">
                         {moods.map((emoji, index) => (
                             <span
                                 key={index}
-                                className={`text-3xl md:text-4xl cursor-pointer ${mood === emoji ? 'ring-2 ring-blue-500 rounded-full' : ''}`}
+                                className={`text-4xl cursor-pointer ${mood === emoji ? 'ring-4 ring-purple-500 rounded-full' : ''}`}
                                 onClick={() => handleMoodClick(emoji)}
                             >
                                 {emoji}
@@ -141,31 +134,28 @@ export default function MoodTrackerJournal() {
                     </div>
                 </div>
 
-                {/* Journal Entry */}
-                <Card className="w-full max-w-xl mb-4 md:mb-6 p-4 shadow-md h-auto md:h-[360px]">
-                    <div className='min-h-[20px]'>
-                        <h2 className="text-lg md:text-xl font-semibold mb-4">Journal Entry</h2>
-                        <div className="flex gap-2 flex-wrap mb-4">
-                            {['Today, I felt...', 'Something that made me smile was...', "I'm grateful for...", 'A challenge I faced was...'].map((prompt, idx) => (
-                                <span
-                                    key={idx}
-                                    className="bg-blue-100 text-blue-600 px-2 py-1 md:px-3 md:py-1 rounded-full cursor-pointer text-sm md:text-base"
-                                    onClick={() => setJournalEntry(journalEntry + (journalEntry ? ' ' : '') + prompt)}
-                                >
-                                    {prompt}
-                                </span>
-                            ))}
-                        </div>
-                        <textarea
-                            className="w-full h-24 md:h-32 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Write about your day..."
-                            value={journalEntry}
-                            onChange={(e) => setJournalEntry(e.target.value)}
-                        />
-                        <Button className="mt-4 w-full bg-blue-500 hover:bg-blue-600" onClick={handleGenerateAffirmations}>
-                            {loading ? 'Generating Affirmations...' : 'Generate Affirmations'}
-                        </Button>
+                <Card className="w-full max-w-xl mb-6 p-4 shadow-md bg-white border border-purple-300 rounded-lg">
+                    <h2 className="text-xl font-semibold mb-4">Journal Entry</h2>
+                    <div className="flex gap-2 flex-wrap mb-4">
+                        {['Today, I felt...', 'Something that made me smile was...', "I'm grateful for...", 'A challenge I faced was...'].map((prompt, idx) => (
+                            <span
+                                key={idx}
+                                className="bg-purple-100 text-purple-600 px-3 py-1 rounded-full cursor-pointer text-base"
+                                onClick={() => setJournalEntry(journalEntry + (journalEntry ? ' ' : '') + prompt)}
+                            >
+                                {prompt}
+                            </span>
+                        ))}
                     </div>
+                    <textarea
+                        className="w-full h-32 p-2 border rounded-lg focus:outline-none focus:ring-4 focus:ring-purple-500"
+                        placeholder="Write about your day..."
+                        value={journalEntry}
+                        onChange={(e) => setJournalEntry(e.target.value)}
+                    />
+                    <Button className="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white" onClick={handleGenerateAffirmations}>
+                        {loading ? 'Generating Affirmations...' : 'Generate Affirmations'}
+                    </Button>
                 </Card>
             </div>
         </div>

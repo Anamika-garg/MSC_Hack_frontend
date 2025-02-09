@@ -46,7 +46,7 @@ const Post = ({ authorName, content, timeStamp, likes, id, authorId }) => {
 
   return (
     <>
-      <div className="bg-white p-6 rounded-2xl shadow-md w-[60vw]">
+      <div className="bg-white p-6 rounded-2xl shadow-md w-[90vw] md:w-full">
         <div className="flex items-center mb-4">
           <div className="w-10 h-10 bg-purple-600 text-white flex items-center justify-center rounded-full text-lg font-bold">
             {

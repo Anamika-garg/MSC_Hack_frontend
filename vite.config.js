@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
+      
+      external: ['react-pdftotext'],
       output: {
         manualChunks(id) {
           if (id.includes('pdfjs-dist/build/pdf.worker.min.js')) {

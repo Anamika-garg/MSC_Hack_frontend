@@ -46,9 +46,9 @@ export default function Community() {
         {/* Navigation Tabs */}
         <nav className="bg-white shadow-sm flex justify-center space-x-8 py-4 mt-[70px]">
           <button className="text-purple-600 border-b-2 border-purple-600 pb-2 font-medium">All Posts</button>
-          <button className="text-gray-600 hover:text-purple-600 hover:border-purple-600 border-b-2 border-transparent pb-2 font-medium">
+          {/* <button className="text-gray-600 hover:text-purple-600 hover:border-purple-600 border-b-2 border-transparent pb-2 font-medium">
             My Posts
-          </button>
+          </button> */}
         </nav>
   
         {/* Create Post Section */}
