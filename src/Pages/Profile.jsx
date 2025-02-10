@@ -40,13 +40,13 @@ const Profile = () => {
         }
       });
       // console.log(response.data.profile);
-      // if(response.data.profile?.Phone && response.data.profile.email){
-      //   toast.error("Complete Your profile first!");
-      //   setTimeout(()=>{
-      //     navigate('/complete');
-      //   },1700)
-      //   return
-      // }
+      if(!(response.data.profile?.Phone) && response.data.profile.email){
+        toast.error("Complete Your profile first!");
+        setTimeout(()=>{
+          navigate('/complete');
+        },1700)
+        return
+      }
       setData(response.data.profile);
       setFormData(response.data.profile?.details);
     } catch (err) {
