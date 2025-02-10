@@ -163,16 +163,16 @@ const Profile = () => {
             {details?.Experience && details?.Experience.map((exp, index) => (
               <>
               <p key={index}>
-              <strong>Position:</strong> {exp.position}
+              <strong>Position:</strong> {exp.position ? exp.position : '-' }
               <br />
-                <strong>Company:</strong> {exp.company}, 
+                <strong>Company:</strong> {exp.company ? exp.company : '-' }, 
               <br />
                
                
-                <strong>Start Date:</strong> {exp.startDate},
+                <strong>Start Date:</strong> {exp.startDate.split('T')[0] ?  exp.startDate.split('T')[0] : '-'},
               <br />
                 
-                 <strong>End Date:</strong> {exp.currentlyWorking ? 'Currently Working' : exp.endDate}
+                 <strong>End Date:</strong> {exp.currentlyWorking ? exp.currentlyWorking : '-'  ? 'Currently Working' : exp.endDate.split('T')[0] ? exp.startDate.split('T')[0] : '-'}
               <br />
                  
               </p>
@@ -196,7 +196,7 @@ const Profile = () => {
             {details?.Education && details?.Education.map((edu, index) => (
               <p key={index}>
                 <strong>Institution:</strong> {edu.college} <br/> <strong>Degree:</strong> {edu.course} <br/> 
-                <strong>From:</strong> {edu.startDate} <br/> <strong>To:</strong> {edu.endDate}
+                <strong>From:</strong> {edu.startDate.split('T')[0]} <br/> <strong>To:</strong> {edu.endDate.split('T')[0]}
               </p>
             ))}
           </ul>

@@ -121,7 +121,7 @@ export default function MoodTrackerJournal() {
 
                 <div className="w-full max-w-xl mb-6 p-4 shadow-md bg-white rounded-lg border border-purple-300">
                     <h2 className="text-xl font-semibold mb-4">How are you feeling today?</h2>
-                    <div className="flex justify-around">
+                    <div className="flex justify-around flex-wrap min-h-[10px]">
                         {moods.map((emoji, index) => (
                             <span
                                 key={index}
