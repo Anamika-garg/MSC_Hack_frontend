@@ -510,7 +510,7 @@ const Jobs = () => {
                             <p className="text-gray-500 text-sm mt-1">{job.time}</p>
                         </div>
                     ))} */}
-                </div> : <h1>Login first...</h1>
+                </div> : <h1 className="text-center mt-3">Login first...</h1>
                 }
                
             </section>
