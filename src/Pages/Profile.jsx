@@ -39,7 +39,7 @@ const Profile = () => {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       });
-      console.log(response.data.profile);
+      // console.log(response.data.profile);
       // if(response.data.profile?.Phone && response.data.profile.email){
       //   toast.error("Complete Your profile first!");
       //   setTimeout(()=>{
@@ -119,7 +119,7 @@ const Profile = () => {
               <h1 className="text-3xl font-bold text-gray-900">{fullName}</h1>
             )}
             <p className="text-gray-600 flex items-center mt-1"><Mail className="w-4 h-4 mr-2" /> {email}</p>
-            <p className="text-gray-600 flex items-center mt-1"><Phone className="w-4 h-4 mr-2" /> {details.Phone || ''}</p>
+            <p className="text-gray-600 flex items-center mt-1"><Phone className="w-4 h-4 mr-2" /> {details.Phone ? details.Phone : ''}</p>
             <Button onClick={logoutHandler} className="block text-left px-4 py-2 text-gray-700 hover:bg-gray-100 mt-2 rounded-md">
               Logout
             </Button>
@@ -132,7 +132,7 @@ const Profile = () => {
         {isEditing ? (
           <textarea 
             name="Bio" 
-            value={formData.Bio || ''} 
+            value={formData.Bio ? formData.Bio : ''} 
             onChange={handleInputChange} 
             className="w-full p-2 border rounded"
           />
@@ -146,7 +146,7 @@ const Profile = () => {
         {isEditing ? (
           <textarea 
             name="Skills" 
-            value={formData.Skills?.join(', ') || ''} 
+            value={formData.Skills?.join(', ') ? formData.Skills?.join(', ')  : ''} 
             onChange={(e) => handleInputChange({ target: { name: 'Skills', value: e.target.value.split(',').map(skill => skill.trim()) } })} 
             className="w-full p-2 border rounded"
           />
