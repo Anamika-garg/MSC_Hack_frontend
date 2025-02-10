@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
-import pdfToText from 'react-pdftotext';
+// import PdfToText from './react-pdftotext-wrapper';
 
 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import getItems  from './pdfToText';
+// import PdfToText from '../react-pdftotext-wrapper';
+// import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
+// import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.js?url';  // Import worker for Vite
+
+
+// Set the worker source
+// GlobalWorkerOptions.workerSrc = pdfWorker;
+
+// import { getDocument } from 'pdfjs-dist';
 
 export default function ResumeReview() {
   const navigate = useNavigate();
@@ -17,28 +27,51 @@ export default function ResumeReview() {
       const selectedFile = e.target.files[0];
       setFileName(selectedFile.name);
       setFile(selectedFile);
-      setIsProcessing(true); 
-      pdfToText(selectedFile)
-        .then(text => {
+      setIsProcessing(true);
+      // PdfToText(selectedFile)
+      //   .then(text => {
+        //   })
+        //   .catch(error => {
+          //     console.error("Failed to extract text from pdf", error);
+          //     setIsProcessing(false);
+          //   });
+          const text = await getItems(selectedFile);
           setData(text);
-          setIsProcessing(false); 
-        })
-        .catch(error => {
-          console.error("Failed to extract text from pdf", error);
-          setIsProcessing(false); 
-        });
+          // console.log(text)
+          setIsProcessing(false);
+          return text;
+      // console.log(text)
     }
+    
   };
 
+
+  // const extractTextFromPDF = async (file) => {
+  //   const pdf = await getDocument(file).promise;
+  //   let text = '';
+
+  //   for (let i = 1; i <= pdf.numPages; i++) {
+  //     const page = await pdf.getPage(i);
+  //     const content = await page.getTextContent();
+  //     const pageText = content.items.map(item => item.str).join(' ');
+  //     text += pageText + '\n';
+  //   }
+
+  //   console.log(text)
+  //   return text;
+  // };
+
+  // Example usage in your component
+ 
   async function requestSend() {
     if (!data) {
       alert('Please select a PDF file and wait for text extraction to complete.');
       return;
     }
 
-    setIsProcessing(true); // Start processing when the user clicks submit
-
+    setIsProcessing(true); 
     try {
+      console.log('hey');
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_USER_URL}/resumereview`,
         { text: data },
