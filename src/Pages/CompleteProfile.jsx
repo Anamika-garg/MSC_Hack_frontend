@@ -167,7 +167,7 @@ const CompleteProfile = () => {
 
         {/* Work Experience Section */}
         <div>
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">Work Experience</h2>
+          <h2 className="text-lg font-semibold text-gray-700 mb-4">Work Experience (optional)</h2>
           {experiences.map((experience, index) => (
             <div key={index} className="mb-4 space-y-2">
               <input
@@ -233,7 +233,7 @@ const CompleteProfile = () => {
                   type="date"
                   value={education.endDate}
                   onChange={(e) => handleEducationChange(index, "endDate", e.target.value)}
-                  disabled={education.pursuing}
+                  // disabled={education.pursuing}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
                 />
               </div>
