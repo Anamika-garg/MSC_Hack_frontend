@@ -46,7 +46,7 @@ const SignUpWithGoogle = () => {
             catch (err) {
             console.log("error", err)
             login()
-            toast.error(err.response.data.error || err.response || 'Some Error Occured');
+            toast.error(err.response?.data.error || err.response || 'Some Error Occured');
 
         }
     }
