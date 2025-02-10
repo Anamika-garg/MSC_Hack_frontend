@@ -28,7 +28,7 @@ const SignUpWithGoogle = () => {
                         }
                     })
     
-                    console.log(res);
+                    // console.log(res);
                     toast(res.data.success);
                     login(res.data.token, res.data.user)
                     if(res.data.method == 'signup'){
