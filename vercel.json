@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"  // For React apps
+      "destination": "/index.html"
     }
   ],
   "headers": [
