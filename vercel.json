@@ -8,21 +8,7 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cross-Origin-Opener-Policy",
-          "value": "unsafe-none"
-        },
-        {
-          "key": "Cross-Origin-Embedder-Policy",
-          "value": "unsafe-none"
-        },
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://*.firebaseapp.com https://*.firebaseio.com https://apis.google.com 'unsafe-eval' 'unsafe-inline'; script-src-elem 'self' https://*.firebaseapp.com https://*.firebaseio.com https://apis.google.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://*.firebaseio.com https://*.firebaseapp.com https://apis.google.com; frame-src https://*.firebaseapp.com https://accounts.google.com;"
-        }
-      ]
+      "source": "/(.*)"
     }
   ]
 }

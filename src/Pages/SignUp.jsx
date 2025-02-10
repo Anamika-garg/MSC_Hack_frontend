@@ -64,8 +64,7 @@ const SignupPage = () => {
             <img src={logo} alt="" className='h-[300px]' />
           </div>
           <div className="text-center max-w-xs">
-            <h1 className="text-2xl text-purple-600 mb-2 font-bold">EvolveX</h1>
-            <p className="text-lg text-gray-800">Your one-stop destination for internships, courses, scholarships, and career growth—unlock your future with us.</p>
+            <p className="text-lg text-gray-800 relative top-[-30px]">Your one-stop destination for internships, courses, Opportunities, and career growth—unlock your future with us.</p>
             {/* <div className="mt-5">
               <img 
                 src="https://via.placeholder.com/300" 
