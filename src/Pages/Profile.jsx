@@ -6,10 +6,12 @@ import { MapPin, Briefcase, GraduationCap, Phone, Mail, Info } from "lucide-reac
 import axios from 'axios';
 import { useAuth } from '../Context/AuthContext';
 import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 const Profile = () => {
   const { logout } = useAuth();
+  const navigate = useNavigate()
   const [data, setData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
@@ -36,7 +38,7 @@ const Profile = () => {
         }
       });
       setData(response.data.profile);
-      setFormData(response.data.profile.details);
+      setFormData(response.data.profile?.details);
     } catch (err) {
       toast.error(err.response?.data?.error || "Failed to load profile");
       console.log(err);
@@ -92,7 +94,7 @@ const Profile = () => {
       <Card className="p-4 shadow-lg rounded-2xl">
         <CardContent className="flex items-center space-x-6">
           <div className="w-24 h-24 bg-purple-100 rounded-full overflow-hidden">
-            <img src={details.photoURL} alt="Profile" className="w-full h-full object-cover" />
+            <img src={details?.photoURL} alt="Profile" className="w-full h-full object-cover" />
           </div>
           <div>
             {isEditing ? (
@@ -125,7 +127,7 @@ const Profile = () => {
             className="w-full p-2 border rounded"
           />
         ) : (
-          <p className="text-gray-700 flex items-center"><Info className="w-4 h-4 mr-2" /> {details.Bio}</p>
+          <p className="text-gray-700 flex items-center"><Info className="w-4 h-4 mr-2" /> {details?.Bio}</p>
         )}
       </div>
 
@@ -140,7 +142,7 @@ const Profile = () => {
           />
         ) : (
           <ul className="list-disc list-inside text-gray-700">
-            {details.Skills && details.Skills.map((skill, index) => (
+            {details?.Skills && details?.Skills.map((skill, index) => (
               <li key={index}>{skill}</li>
             ))}
           </ul>
@@ -158,7 +160,7 @@ const Profile = () => {
           />
         ) : (
           <ul className="list-disc list-inside text-gray-700">
-            {details.Experience && details.Experience.map((exp, index) => (
+            {details?.Experience && details?.Experience.map((exp, index) => (
               <>
               <p key={index}>
               <strong>Position:</strong> {exp.position}
@@ -191,7 +193,7 @@ const Profile = () => {
           />
         ) : (
           <ul className="list-disc list-inside text-gray-700">
-            {details.Education && details.Education.map((edu, index) => (
+            {details?.Education && details?.Education.map((edu, index) => (
               <p key={index}>
                 <strong>Institution:</strong> {edu.college} <br/> <strong>Degree:</strong> {edu.course} <br/> 
                 <strong>From:</strong> {edu.startDate} <br/> <strong>To:</strong> {edu.endDate}
@@ -231,7 +233,7 @@ const Profile = () => {
             />
           </>
         ) : (
-          <p className="text-gray-700 flex items-center"><MapPin className="w-4 h-4 mr-2" /> {details.location[0].city}, {details.location[0].country}</p>
+          <p className="text-gray-700 flex items-center"><MapPin className="w-4 h-4 mr-2" /> {details?.location[0].city}, {details?.location[0].country}</p>
         )}
       </div>
 
