@@ -39,14 +39,14 @@ const Profile = () => {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       });
-      console.log(response.data.profile.Phone);
-      if(response.data.profile?.Phone && response.data.profile.email){
-        toast.error("Complete Your profile first!");
-        setTimeout(()=>{
-          navigate('/complete');
-        },1700)
-        return
-      }
+      console.log(response.data.profile);
+      // if(response.data.profile?.Phone && response.data.profile.email){
+      //   toast.error("Complete Your profile first!");
+      //   setTimeout(()=>{
+      //     navigate('/complete');
+      //   },1700)
+      //   return
+      // }
       setData(response.data.profile);
       setFormData(response.data.profile?.details);
     } catch (err) {
@@ -119,7 +119,7 @@ const Profile = () => {
               <h1 className="text-3xl font-bold text-gray-900">{fullName}</h1>
             )}
             <p className="text-gray-600 flex items-center mt-1"><Mail className="w-4 h-4 mr-2" /> {email}</p>
-            <p className="text-gray-600 flex items-center mt-1"><Phone className="w-4 h-4 mr-2" /> {details.Phone}</p>
+            <p className="text-gray-600 flex items-center mt-1"><Phone className="w-4 h-4 mr-2" /> {details.Phone || ''}</p>
             <Button onClick={logoutHandler} className="block text-left px-4 py-2 text-gray-700 hover:bg-gray-100 mt-2 rounded-md">
               Logout
             </Button>
@@ -178,7 +178,7 @@ const Profile = () => {
                 <strong>Company:</strong> {exp.company ? exp.company : '-' }, 
               <br />
                
-                <strong>Start Date:</strong> {exp.startDate.split('T')[0] ?  exp.startDate.split('T')[0] : '-'},
+                <strong>Start Date:</strong> {exp.startDate?.split('T')[0] ?  exp.startDate?.split('T')[0] : '-'}
               <br />
                 
                  <strong>End Date:</strong> {exp.currentlyWorking ? exp.currentlyWorking : '-'  ? 'Currently Working' : exp.endDate.split('T')[0] ? exp.startDate.split('T')[0] : '-'}
@@ -205,7 +205,7 @@ const Profile = () => {
             {details?.Education && details?.Education.map((edu, index) => (
               <p key={index}>
                 <strong>Institution:</strong> {edu.college} <br/> <strong>Degree:</strong> {edu.course} <br/> 
-                <strong>From:</strong> {edu.startDate.split('T')[0]} <br/> <strong>To:</strong> {edu.endDate.split('T')[0]}
+                <strong>From:</strong> {edu.startDate?.split('T')[0]} <br/> <strong>To:</strong> {edu.endDate?.split('T')[0]}
               </p>
             ))}
           </ul>
