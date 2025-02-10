@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import PdfToText from './react-pdftotext-wrapper';
-
-
+import { useAuth } from '../Context/AuthContext';
+import {toast , ToastContainer} from 'react-toastify'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import getItems  from './pdfToText';
@@ -21,6 +21,16 @@ export default function ResumeReview() {
   const [file, setFile] = useState('');
   const [data, setData] = useState('');
   const [isProcessing, setIsProcessing] = useState(false); // Track the entire process (upload + API call)
+  
+  const {isAuthenticated} = useAuth();
+  useEffect(()=>{
+    if(!isAuthenticated){
+      toast.error("Login first!")
+      setTimeout(()=>{
+        navigate('/login')
+      },1200)
+    }
+  },[])
 
   const handleFileChange = async (e) => {
     if (e.target.files.length > 0) {

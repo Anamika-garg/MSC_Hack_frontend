@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
+import { useAuth } from "../Context/AuthContext";
 const Jobs = () => {
 
     const dummyData ={ "data": [
@@ -391,12 +392,24 @@ const Jobs = () => {
           }
       ]};
 
+      
+
     const navigate = useNavigate();
     const [myData, setMyData] = useState([]);
     const [formData, setFormData] = useState({
         jobTitle: '',
         location: ''
     })
+    const [show,setShow] = useState(true)
+
+    const {isAuthenticated} = useAuth();
+
+      useEffect(()=>{
+        if(!isAuthenticated){
+          setShow(false)
+        }
+      },[]);
+
     const findJob = async (e) => {
         e.preventDefault();
         const data = new FormData();
@@ -460,7 +473,8 @@ const Jobs = () => {
             {/* Jobs Section */}
             <section className="bg-purple-50 py-16 px-4 sm:px-8 md:px-16 lg:px-32">
                 <h3 className="text-center text-2xl sm:text-3xl font-bold text-purple-700">Jobs You May Be Interested In</h3>
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {
+                    show ?  <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {myData.map((job, index) => (
                         <div
                             key={index}
@@ -496,7 +510,9 @@ const Jobs = () => {
                             <p className="text-gray-500 text-sm mt-1">{job.time}</p>
                         </div>
                     ))} */}
-                </div>
+                </div> : <h1>Login first...</h1>
+                }
+               
             </section>
         </div>
     );

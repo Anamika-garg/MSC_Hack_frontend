@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <ToastContainer/>
-      <div className="flex w-4/5 min-h-[10px] bg-white rounded-lg shadow-lg gap-[10px] overflow-hidden md:flex-row flex-col mt-[40px] md:mt-0">
+      <div className="flex md:w-3/5 w-full min-h-[500px] bg-white rounded-lg shadow-lg gap-[10px] overflow-hidden md:flex-row flex-col mt-[40px] md:mt-0">
      
         {/* Right Panel */}
         <div className="flex-1 flex justify-center items-center p-3">
@@ -94,19 +94,19 @@ const Login = () => {
           </div>
         </div>
            {/* Left Panel */}
-           <div className="flex-1 bg-purple-100 justify-center items-center hidden md:flex">
+           {/* <div className="flex-1 bg-purple-100 justify-center items-center hidden md:flex">
           <div className="text-center max-w-xs">
             <h1 className="text-2xl text-purple-600 mb-2">5 Minute School</h1>
             <p className="text-lg text-gray-800">Learn From World's Best Instructors Around The World.</p>
-            {/* <div className="mt-5">
+            <div className="mt-5">
               <img 
                 src="https://via.placeholder.com/300" 
                 alt="Illustration" 
                 className="w-full h-auto"
               />
-            </div> */}
+            </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </div>

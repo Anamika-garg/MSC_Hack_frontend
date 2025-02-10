@@ -7,11 +7,22 @@ import axios from 'axios';
 import { useAuth } from '../Context/AuthContext';
 import { toast, ToastContainer } from 'react-toastify';
 
+
 const Profile = () => {
   const { logout } = useAuth();
   const [data, setData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
+  const {isAuthenticated} = useAuth();
+
+    useEffect(()=>{
+      if(!isAuthenticated){
+        toast.error("Login first!")
+        setTimeout(()=>{
+          navigate('/login')
+        },1200)
+      }
+    },[])
 
   useEffect(() => {
     fetchDetails();
