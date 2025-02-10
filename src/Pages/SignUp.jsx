@@ -21,7 +21,7 @@ const SignupPage = () => {
   const submitHandler = async(e) => {
     e.preventDefault();
     // navigate('/')
-    navigate('/complete');
+    // navigate('/complete');
     if(!formData.checkbox){
       toast.error('Please accept terms and condition');
       return
@@ -37,8 +37,8 @@ const SignupPage = () => {
           "Content-Type" : 'application/json'
         }
       })
-      
-      console.log(response);
+      // 
+      // console.log(response);
       login(response.data.token , response.data.user)
       toast.success(response.data.success);
       setTimeout(()=>{
@@ -106,7 +106,7 @@ const SignupPage = () => {
                 className="p-3 text-base border border-gray-300 rounded-md w-full"
               />
               <input
-                type="confirmPassword"
+                type="password"
                 placeholder="Confirm Password"
                 name='confirmPassword'
                 value={formData.confirmPassword}

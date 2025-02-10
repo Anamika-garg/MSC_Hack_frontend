@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {pdfToText} from 'react-pdftotext';
+import pdfToText from 'react-pdftotext';
 
 
 import axios from 'axios';
@@ -17,16 +17,15 @@ export default function ResumeReview() {
       const selectedFile = e.target.files[0];
       setFileName(selectedFile.name);
       setFile(selectedFile);
-      setIsProcessing(true); // Start processing when the file is uploaded
-
+      setIsProcessing(true); 
       pdfToText(selectedFile)
         .then(text => {
           setData(text);
-          setIsProcessing(false); // Text extraction complete
+          setIsProcessing(false); 
         })
         .catch(error => {
           console.error("Failed to extract text from pdf", error);
-          setIsProcessing(false); // Stop processing on error
+          setIsProcessing(false); 
         });
     }
   };

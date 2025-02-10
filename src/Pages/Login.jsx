@@ -30,7 +30,7 @@ const Login = () => {
         }
       })
       
-      console.log(response);
+      // console.log(response);
       login(response.data.token , response.data.user)
       toast.success(response.data.success)
       setTimeout(()=>{

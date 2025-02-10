@@ -13,7 +13,7 @@ const Post = ({ authorName, content, timeStamp, likes, id, authorId }) => {
   async function getAuthor() {
     try {
       const res = await axios.get(`${import.meta.env.VITE_BACKEND_USER_URL}/author/${authorId}`);
-      console.log(res.data.author)
+      // console.log(res.data.author)
       setAuthor(() => res.data.author);
     }
     catch (err) {
@@ -35,7 +35,7 @@ const Post = ({ authorName, content, timeStamp, likes, id, authorId }) => {
           }
         });
 
-      console.log(res.data);
+      // console.log(res.data);
       setPostLikes(like => like + 1);
 
     }

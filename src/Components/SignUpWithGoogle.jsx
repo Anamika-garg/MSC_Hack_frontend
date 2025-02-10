@@ -31,6 +31,12 @@ const SignUpWithGoogle = () => {
                     console.log(res);
                     toast(res.data.success);
                     login(res.data.token, res.data.user)
+                    if(res.data.method == 'signup'){
+                        setTimeout(() => {
+                            navigate('/complete');
+                        }, 1500);
+                        return;
+                    }
                     setTimeout(() => {
                         navigate('/');
                     }, 1500)

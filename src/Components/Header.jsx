@@ -60,16 +60,23 @@ const Header = () => {
                 >
                   Dashboard
                 </Link>
-                  {/* Dropdown Menu */}
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out z-20">
-                    
-                    <button
+                 {/* <button
                       onClick={logout}
                       className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       Logout
+                    </button> */}
+                  {/* Dropdown Menu */}
+                  {/* <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out z-20">
+                    
+                    
+                    <button
+                      onClick={logout}
+                      className="block w-full text-left px-4 py-2 text-gray-700 mt-[70px] hover:bg-gray-100"
+                    >
+                      Logout
                     </button>
-                  </div>
+                  </div> */}
                 
               </div>
             )}

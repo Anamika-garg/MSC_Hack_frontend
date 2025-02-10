@@ -14,7 +14,7 @@ export default function Community() {
         try{
             const res = await axios.get(`${import.meta.env.VITE_BACKEND_POST_URL}/posts`);
             
-            console.log(res.data);
+            // console.log(res.data);
             setPosts(res.data.Posts);
         }
         catch(err){
@@ -31,7 +31,7 @@ export default function Community() {
                     Authorization : `Bearer ${localStorage.getItem('authToken')}`
                 }
             })
-            console.log(res.data);
+            // console.log(res.data);
             setPosts([...posts , res.data.post]);
             setContent('')
         }

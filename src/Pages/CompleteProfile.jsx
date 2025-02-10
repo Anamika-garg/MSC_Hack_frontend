@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
+import { toast , ToastContainer } from "react-toastify";
+
 const CompleteProfile = () => {
   const navigate = useNavigate()
+  const [loading , setLoading] = useState(false);
   const [experiences, setExperiences] = useState([
     { company: "", position: "", startDate: "", endDate: "" },
   ]);
@@ -34,7 +37,7 @@ const CompleteProfile = () => {
   };
 
   const addEducation = () => {
-    setEducations([...educations, { course: "", college: "", startDate: "", endDate: "", pursuing: false }]);
+    setEducations([...educations, { course: "", college: "", startDate: null, endDate: null, pursuing: false }]);
   };
 
   const handleEducationChange = (index, field, value) => {
@@ -50,20 +53,42 @@ const CompleteProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    for (let i = 0; i < experiences.length; i++) {
+      const { company, position, startDate, endDate } = experiences[i];
+  
+      if ((company || position) && (!startDate || !endDate)) {
+        toast.error(`Please provide start and end dates for experience #${i + 1}`);
+        return; 
+      }
 
+    }
+    for (let i = 0; i < educations.length; i++) {
+      const { course, college, startDate, endDate } = educations[i];
+  
+      if (!startDate || !endDate || !course || !college ) {
+        toast.error(`Please provide start and end dates for Education #${i + 1}`);
+        // console.log(educations)
+        return; 
+      }
+    }
+
+  
     try {
+      setLoading(true)
       const data = new FormData();
-      data.append('Skills', skills);
+      data.append('Skills', JSON.stringify(skills));
       data.append('Experience', JSON.stringify(experiences));
       data.append('Education', JSON.stringify(educations));
       data.append('Bio', bio);
       data.append('Phone', phone);
       data.append('location', JSON.stringify(location));
       data.append('profession', profession);
+      
       if (profilePhoto) {
         data.append('Avatar', profilePhoto);
       }
-
+  
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_USER_URL}/userDetails`,
         data,
@@ -74,15 +99,18 @@ const CompleteProfile = () => {
           },
         }
       );
-
-      console.log(response);
-      setTimeout(()=>{
+  
+      toast.success(response.data.success);
+      setTimeout(() => {
         navigate('/');
-      },1000)
+      }, 1000);
     } catch (err) {
-      console.log(err);
+      toast.error(err.response?.data?.error || "An error occurred!");
+      console.error(err);
     }
+    setLoading(false);
   };
+  
 
   const handlePhotoChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -92,6 +120,7 @@ const CompleteProfile = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 mt-[50px]">
+      <ToastContainer/>
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-[100vw] md:max-w-[60vw]">
         <h1 className="text-2xl font-bold text-center text-purple-600 mb-6">Complete Your Profile</h1>
 
@@ -202,7 +231,7 @@ const CompleteProfile = () => {
                 />
                 <input
                   type="date"
-                  value={education.pursuing ? "" : education.endDate}
+                  value={education.endDate}
                   onChange={(e) => handleEducationChange(index, "endDate", e.target.value)}
                   disabled={education.pursuing}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
@@ -265,7 +294,9 @@ const CompleteProfile = () => {
 
         {/* Submit Button */}
         <button type="submit" className="w-full mt-6 bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-500">
-          Complete Profile
+          {
+            loading ? `Wait a minute.`: `Complete Profile`
+          } 
         </button>
       </form>
     </div>

@@ -67,7 +67,7 @@ export default function CoursePage() {
                     Authorization : `Bearer ${localStorage.getItem('authToken')}`
                 }
             })
-            console.log(response.data)
+            // console.log(response.data)
             setCourses(response.data.courses);
     }
         catch(err){
@@ -83,7 +83,7 @@ export default function CoursePage() {
                     Authorization : `Bearer ${localStorage.getItem('authToken')}`
                 }
             })
-            console.log(response.data)
+            // console.log(response.data)
             setPersonalisedCourses(response.data.courses)
         }
         catch(err){
