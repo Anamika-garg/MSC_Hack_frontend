@@ -16,7 +16,7 @@ const Header = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 text-2xl font-bold text-purple-600">
-            <Link to="/">AI Career</Link>
+            <Link to="/">EvolveX</Link>
           </div>
 
           {/* Desktop Menu */}

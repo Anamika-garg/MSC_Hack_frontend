@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="bg-gray-800 text-white py-8">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <h4 className="font-bold text-lg mb-2">AI Empower</h4>
+            <h4 className="font-bold text-lg mb-2">EvolveX</h4>
             <p>Empowering youth with AI-driven tools for career, creativity, and well-being.</p>
           </div>
           <div>
