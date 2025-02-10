@@ -18,12 +18,14 @@ const Profile = () => {
   const {isAuthenticated} = useAuth();
 
     useEffect(()=>{
-      if(!isAuthenticated){
-        toast.error("Login first!")
-        setTimeout(()=>{
-          navigate('/login')
-        },1200)
-      }
+      setTimeout(() => {
+        if(!localStorage.getItem('authToken')){
+          toast.error("Login first!")
+          setTimeout(()=>{
+            navigate('/login')
+          },1200)
+        }
+      }, 1000);
     },[])
 
   useEffect(() => {
@@ -37,6 +39,14 @@ const Profile = () => {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       });
+      console.log(response.data.profile.Phone);
+      if(response.data.profile?.Phone && response.data.profile.email){
+        toast.error("Complete Your profile first!");
+        setTimeout(()=>{
+          navigate('/complete');
+        },1700)
+        return
+      }
       setData(response.data.profile);
       setFormData(response.data.profile?.details);
     } catch (err) {
@@ -167,7 +177,6 @@ const Profile = () => {
               <br />
                 <strong>Company:</strong> {exp.company ? exp.company : '-' }, 
               <br />
-               
                
                 <strong>Start Date:</strong> {exp.startDate.split('T')[0] ?  exp.startDate.split('T')[0] : '-'},
               <br />
