@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     const storedToken = localStorage.getItem('authToken');
     const storedUser = localStorage.getItem('user');
 
-    if (storedToken) {
+    if (storedToken != undefined) {
       setToken(storedToken);
       setUser(storedUser);  
       setIsAuthenticated(true);

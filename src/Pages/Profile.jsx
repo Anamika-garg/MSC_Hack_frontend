@@ -39,8 +39,8 @@ const Profile = () => {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       });
-      // console.log(response.data.profile);
-      if(!(response.data.profile?.Phone) && response.data.profile.email){
+      console.log(response.data.profile);
+      if(!(response.data.profile?.details.Phone) && response.data.profile.email){
         toast.error("Complete Your profile first!");
         setTimeout(()=>{
           navigate('/complete');
@@ -172,19 +172,22 @@ const Profile = () => {
           <ul className="list-disc list-inside text-gray-700">
             {details?.Experience && details?.Experience.map((exp, index) => (
               <>
-              <p key={index}>
-              <strong>Position:</strong> {exp.position ? exp.position : '-' }
-              <br />
-                <strong>Company:</strong> {exp.company ? exp.company : '-' }, 
-              <br />
-               
-                <strong>Start Date:</strong> {exp.startDate?.split('T')[0] ?  exp.startDate?.split('T')[0] : '-'}
-              <br />
-                
-                 <strong>End Date:</strong> {exp.currentlyWorking ? exp.currentlyWorking : '-'  ? 'Currently Working' : exp.endDate.split('T')[0] ? exp.startDate.split('T')[0] : '-'}
-              <br />
+              {
+                exp.position ?  <p key={index}>
+                <strong>Position:</strong> {exp.position ? exp.position : '-' }
+                <br />
+                  <strong>Company:</strong> {exp.company ? exp.company : '-' }, 
+                <br />
                  
-              </p>
+                  <strong>Start Date:</strong> {exp.startDate?.split('T')[0] ?  exp.startDate?.split('T')[0] : '-'}
+                <br />
+                  
+                   <strong>End Date:</strong> {exp.currentlyWorking ? exp.currentlyWorking : '-'  ? 'Currently Working' : exp.endDate.split('T')[0] ? exp.startDate.split('T')[0] : '-'}
+                <br />
+                   
+                </p> : <>-</>
+              }
+             
                   </>
             ))}
           </ul>
