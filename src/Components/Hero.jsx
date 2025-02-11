@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import {Link} from 'react-router-dom';
 const Hero = () => {
   const slides = [
     {
@@ -51,12 +51,11 @@ const Hero = () => {
         <p className="text-lg max-w-2xl">{slide.description}</p>
 
         <div className="mt-6 flex space-x-4">
+          <Link to={'/signup'}>
           <button className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full text-lg">
             Get Started
           </button>
-          <button className="border border-white text-white px-6 py-3 rounded-full text-lg hover:bg-white hover:text-purple-600">
-            Explore More
-          </button>
+          </Link>
         </div>
       </div>
     </section>
