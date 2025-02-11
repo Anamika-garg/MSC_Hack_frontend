@@ -68,7 +68,7 @@ export default function ResumeReviewResult() {
               <h3 className="text-2xl font-bold text-purple-800 mb-4">{selectedSection} Section</h3>
               <div className="flex justify-between items-center mb-4">
                 <span className="font-medium text-gray-700">Score:</span>
-                <span className="text-2xl font-extrabold text-purple-900">{atsData.Sections[selectedSection].Score}/100</span>
+                <span className="text-2xl font-extrabold text-purple-900">{atsData.Sections[selectedSection].Score != null ? atsData.Sections[selectedSection].Score : 0}/100</span>
               </div>
               <Progress value={atsData.Sections[selectedSection].Score} className="h-5 bg-purple-300 rounded-full mb-4" />
               <h4 className="text-xl font-semibold text-purple-700 mb-3">Suggestions:</h4>

@@ -81,7 +81,7 @@ export default function ResumeReview() {
 
     setIsProcessing(true); 
     try {
-      console.log('hey');
+      // console.log('hey');
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_USER_URL}/resumereview`,
         { text: data },
@@ -94,6 +94,7 @@ export default function ResumeReview() {
       );
 
       const resData = res.data.review.replace(/```/g, " ").trim().replace(/JSON|json/, "");
+      // console.log(resData)
       navigate('/resume-review-result', { state: JSON.parse(resData) });
     } catch (err) {
       if (err.response) {
