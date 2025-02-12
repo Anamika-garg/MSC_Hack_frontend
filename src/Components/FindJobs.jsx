@@ -46,43 +46,57 @@ export default function FindJobs() {
   });
 
   return (
-    <div className="flex flex-col md:flex-row p-4 bg-gray-100 min-h-screen mt-[70px]">
+    <div className="flex flex-col md:flex-row p-2 bg-gray-100 min-h-screen mt-[70px]">
       {/* Sidebar Filters */}
-      <div className="w-[70%] relative pl-7 md:w-1/4 mb-6 md:mb-0 md:pr-4">
+      <div className="w-full md:w-1/5 mt-[16px] mr-3 max-h-[600px] bg-white shadow-xl rounded-2xl p-4 space-y-6">
         {/* Work Type Filters */}
-        <h2 className="text-xl font-semibold mb-4">Filter by Work Type</h2>
-        {['Remote', 'Hybrid', 'Onsite'].map((workType) => (
-          <div key={workType} className="mb-2">
-            <input
-              type="checkbox"
-              id={`workType-${workType}`}
-              checked={filters.workType === workType}
-              onChange={() => handleWorkTypeChange(workType)}
-              className="mr-2"
-            />
-            <label htmlFor={`workType-${workType}`} className="text-gray-700">
-              {workType}
-            </label>
-          </div>
-        ))}
+        <div>
+          <h2 className="text-xl font-semibold mb-3 text-purple-700">Filter by Work Type</h2>
+          {['Remote', 'Hybrid', 'Onsite'].map((workType) => (
+            <div key={workType} className="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id={`workType-${workType}`}
+                checked={filters.workType === workType}
+                onChange={() => handleWorkTypeChange(workType)}
+                className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-2 focus:ring-purple-400 cursor-pointer"
+              />
+              <label
+                htmlFor={`workType-${workType}`}
+                className="ml-2 text-sm text-gray-700 cursor-pointer hover:text-purple-600 transition duration-150"
+              >
+                {workType}
+              </label>
+            </div>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200"></div>
 
         {/* Job Type Filters */}
-        <h2 className="text-xl font-semibold mt-6 mb-4">Filter by Job Type</h2>
-        {['Full time', 'Part time', 'Contract'].map((jobType) => (
-          <div key={jobType} className="mb-2">
-            <input
-              type="checkbox"
-              id={`jobType-${jobType}`}
-              checked={filters.jobType === jobType}
-              onChange={() => handleJobTypeChange(jobType)}
-              className="mr-2"
-            />
-            <label htmlFor={`jobType-${jobType}`} className="text-gray-700 capitalize">
-              {jobType.replace('_', ' ')}
-            </label>
-          </div>
-        ))}
+        <div>
+          <h2 className="text-xl font-semibold mb-3 text-purple-700">Filter by Job Type</h2>
+          {['Full time', 'Part time', 'Contract'].map((jobType) => (
+            <div key={jobType} className="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id={`jobType-${jobType}`}
+                checked={filters.jobType === jobType}
+                onChange={() => handleJobTypeChange(jobType)}
+                className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-2 focus:ring-purple-400 cursor-pointer"
+              />
+              <label
+                htmlFor={`jobType-${jobType}`}
+                className="ml-2 text-sm text-gray-700 capitalize cursor-pointer hover:text-purple-600 transition duration-150"
+              >
+                {jobType.replace('_', ' ')}
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
+
 
       {/* Job Cards */}
       <div className="w-full md:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
