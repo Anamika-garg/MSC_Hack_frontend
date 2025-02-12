@@ -68,7 +68,7 @@ export default function FindJobs() {
 
         {/* Job Type Filters */}
         <h2 className="text-xl font-semibold mt-6 mb-4">Filter by Job Type</h2>
-        {['FULL_TIME', 'PART_TIME', 'CONTRACT'].map((jobType) => (
+        {['Full time', 'Part time', 'Contract'].map((jobType) => (
           <div key={jobType} className="mb-2">
             <input
               type="checkbox"

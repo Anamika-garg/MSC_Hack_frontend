@@ -39,14 +39,15 @@ const Profile = () => {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       });
-      console.log(response.data.profile);
-      if(!(response.data.profile?.details.Phone) && response.data.profile.email){
+      if(!(response.data.profile?.details) && response.data.profile.email){
+        // console.log(!(response.data.profile.details) && response.data.profile.email)
         toast.error("Complete Your profile first!");
         setTimeout(()=>{
           navigate('/complete');
         },1700)
         return
       }
+      console.log(response.data.profile);
       setData(response.data.profile);
       setFormData(response.data.profile?.details);
     } catch (err) {
@@ -119,7 +120,7 @@ const Profile = () => {
               <h1 className="text-3xl font-bold text-gray-900">{fullName}</h1>
             )}
             <p className="text-gray-600 flex items-center mt-1"><Mail className="w-4 h-4 mr-2" /> {email}</p>
-            <p className="text-gray-600 flex items-center mt-1"><Phone className="w-4 h-4 mr-2" /> {details.Phone ? details.Phone : ''}</p>
+            <p className="text-gray-600 flex items-center mt-1"><Phone className="w-4 h-4 mr-2" /> {details?.Phone ? details?.Phone : ''}</p>
             <Button onClick={logoutHandler} className="block text-left px-4 py-2 text-gray-700 hover:bg-gray-100 mt-2 rounded-md">
               Logout
             </Button>

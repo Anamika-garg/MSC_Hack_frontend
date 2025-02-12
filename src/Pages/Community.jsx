@@ -70,7 +70,7 @@ export default function Community() {
         <section className="max-w-3xl mx-auto mt-6 space-y-6 mb-4 flex flex-col items-center justify-center">
           {
             posts.length > 0 ? posts.map((e ,i)=>{
-                return <Post key={i} authorName={e.authorName} content={e.content} timeStamp={e.createdAt} likes={e.likes} id={e._id} authorId = {e.authorId}/>
+                return <Post key={i} authorName={e.authorName} content={e.content} timeStamp={e.createdAt} likes={e.likes} id={e._id} authorId = {e.authorId} commentsData={e.comments}/>
             }) : <h1 className="text-center"> No Posts </h1>
           }
           
