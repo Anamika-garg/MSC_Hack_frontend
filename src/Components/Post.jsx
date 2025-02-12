@@ -10,7 +10,7 @@ const Post = ({ authorName, content, timeStamp, likes, id, authorId , commentsDa
   const [showCommentInput, setShowCommentInput] = useState(false);
   const [newComment, setNewComment] = useState('');
   const [comments, setComments] = useState(commentsData); // To store comments
-  console.log(comments)
+  // console.log(comments)
 
   // Fetch author details
   async function getAuthor() {
@@ -59,7 +59,7 @@ const Post = ({ authorName, content, timeStamp, likes, id, authorId , commentsDa
             }
           }
         );
-        setComments(prevComments => [...prevComments, res.data.comments]);
+        setComments(res.data.post.comments);
         setNewComment('');
       } catch (err) {
         
