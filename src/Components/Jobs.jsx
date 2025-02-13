@@ -417,13 +417,13 @@ const Jobs = () => {
         data.append('location', formData.location);
 
         try {
-            // const res = await axios.post(`${import.meta.env.VITE_BACKEND_JOB_URL}/jobs`, data, {
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     }
-            // })
-            // // console.log(res.data);
-            navigate('/findJobs' , {state : dummyData})
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_JOB_URL}/jobs`, data, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            // console.log(res.data);
+            navigate('/findJobs' , {state : res.data})
 
         }
         catch (err) {
@@ -437,19 +437,19 @@ const Jobs = () => {
     }, [])
 
     async function fetchDetails() {
-        // try {
-        //     const res = await axios.get(`${import.meta.env.VITE_BACKEND_JOB_URL}/jobsInterestedIn`, {
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         }
-        //     })
-        //     // console.log(res.data);
-        //     setMyData(res.data.data)
+        try {
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_JOB_URL}/jobsInterestedIn`, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            // console.log(res.data);
+            setMyData(res.data.data)
 
-        // }
-        // catch (err) {
-        //     console.log(err);
-        // }
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
     const changeHandler = (e) => {
