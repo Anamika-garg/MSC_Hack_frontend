@@ -6,6 +6,7 @@ import { useAuth } from "../Context/AuthContext";
 const Jobs = () => {
     const navigate = useNavigate();
     const [myData, setMyData] = useState([]);
+    const [loading,setLoading] = useState(false);
     const [formData, setFormData] = useState({
         jobTitle: "",
         location: ""
@@ -14,14 +15,12 @@ const Jobs = () => {
 
     const { isAuthenticated } = useAuth();
 
-    // Ensure authentication state is checked properly
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!(localStorage.getItem('authToken'))) {
             setShow(false);
         }
-    }, [isAuthenticated]); // Depend on `isAuthenticated`
+    }, []); 
 
-    // Fetch jobs of interest on component mount
     useEffect(() => {
         fetchDetails();
     }, []);
@@ -44,6 +43,7 @@ const Jobs = () => {
     }
 
     const findJob = async (e) => {
+        setLoading(true);
         e.preventDefault();
         try {
             const res = await axios.post(
@@ -58,9 +58,11 @@ const Jobs = () => {
                     }
                 }
             );
-            console.log("Search Results:", res.data);
+            // console.log("Search Results:", res.data);
             navigate("/findJobs", { state: res.data });
+            setLoading(false);
         } catch (err) {
+            setLoading(false);
             console.error("Error searching jobs:", err);
         }
     };
@@ -100,7 +102,10 @@ const Jobs = () => {
                         className="bg-purple-700 text-white px-6 py-3 rounded-md hover:bg-purple-800 w-full sm:w-auto"
                         onClick={findJob}
                     >
-                        Find a Job
+                        {
+                            (!loading) ?  `Find a Job` : `Loading...`
+                        }
+                       
                     </button>
                 </div>
                 <p className="mt-4 text-gray-500 text-xs sm:text-sm">
@@ -119,7 +124,7 @@ const Jobs = () => {
                         {myData
                             .filter(
                                 (job) =>
-                                    job.company !== "****" &&
+                                    (!job.company.includes("****")) &&
                                     job.location !== "*******" &&
                                     job.title !== "******** ********"
                             )
