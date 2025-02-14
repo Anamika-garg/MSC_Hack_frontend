@@ -31,12 +31,13 @@ const Jobs = () => {
                 `${import.meta.env.VITE_BACKEND_JOB_URL}/jobsInterestedIn`,
                 {
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        Authorization : `Bearer ${localStorage.getItem('authToken')}`
                     }
                 }
             );
-            // console.log("Jobs Data:", res.data);
-            setMyData(res.data);
+            console.log("Jobs Data:", res.data);
+            setMyData(res.data.jobs);
         } catch (err) {
             console.error("Error fetching jobs:", err);
         }
@@ -58,8 +59,8 @@ const Jobs = () => {
                     }
                 }
             );
-            // console.log("Search Results:", res.data);
-            navigate("/findJobs", { state: res.data });
+            console.log("Search Results:", res.data);
+            navigate("/findJobs", { state: res.data.jobs });
             setLoading(false);
         } catch (err) {
             setLoading(false);
