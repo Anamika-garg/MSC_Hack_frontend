@@ -3,6 +3,7 @@ import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 import { FiSend } from 'react-icons/fi'; // Send icon
 import Comment from './Comment';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Post = ({ authorName, content, timeStamp, likes, id, authorId , commentsData }) => {
   const [postLikes, setPostLikes] = useState(likes);
@@ -37,7 +38,11 @@ const Post = ({ authorName, content, timeStamp, likes, id, authorId , commentsDa
       });
       setPostLikes(like => like + 1);
     } catch (err) {
+      if(err.response.status == 422){
+        toast("You have already Liked this post!")
+      }
       console.log(err);
+
     }
   }
 
@@ -70,6 +75,7 @@ const Post = ({ authorName, content, timeStamp, likes, id, authorId , commentsDa
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-md w-[90vw] md:w-full">
+      <ToastContainer/>
       {/* Post Header */}
       <div className="flex items-center mb-4">
         <div className="w-10 h-10 bg-purple-600 text-white flex items-center justify-center rounded-full overflow-hidden">

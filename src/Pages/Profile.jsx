@@ -39,7 +39,9 @@ const Profile = () => {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
       });
-      if(!(response.data.profile?.details) && response.data.profile.email){
+      // console.log(response.data.profile?.details)
+      // console.log(((response.data.profile?.details?.location.length)))
+      if((response.data.profile?.details?.location.length == 0) && response.data.profile.email){
         // console.log(!(response.data.profile.details) && response.data.profile.email)
         toast.error("Complete Your profile first!");
         setTimeout(()=>{
@@ -47,7 +49,7 @@ const Profile = () => {
         },1700)
         return
       }
-      console.log(response.data.profile);
+      // console.log(response.data.profile);
       setData(response.data.profile);
       setFormData(response.data.profile?.details);
     } catch (err) {
@@ -246,7 +248,7 @@ const Profile = () => {
             />
           </>
         ) : (
-          <p className="text-gray-700 flex items-center"><MapPin className="w-4 h-4 mr-2" /> {details?.location[0].city}, {details?.location[0].country}</p>
+          <p className="text-gray-700 flex items-center"><MapPin className="w-4 h-4 mr-2" /> {details?.location[0]?.city}, {details?.location[0]?.country}</p>
         )}
       </div>
 

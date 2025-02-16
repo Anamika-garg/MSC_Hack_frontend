@@ -39,6 +39,7 @@ const Button = ({ onClick, children, className }) => (
   );
 
 export default function CoursePage() {
+    const [loading , setLoading] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [courses , setCourses] = useState(coursesData);
     const [personalisedCourses , setPersonalisedCourses] = useState(coursesData);
@@ -60,6 +61,7 @@ export default function CoursePage() {
     async function getCourses() {
         try{
             if(!searchTerm) return;
+            setLoading(true);
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_USER_URL}/getCourses`, {
                 course : searchTerm
             }  , {
@@ -69,6 +71,7 @@ export default function CoursePage() {
             })
             // console.log(response.data)
             setCourses(response.data.courses);
+            setLoading(false);
     }
         catch(err){
             console.log(err);
@@ -105,7 +108,11 @@ export default function CoursePage() {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full max-w-md border-2 border-purple-500 focus:ring-purple-600 focus:border-purple-600"
         />
-         <Button onClick={handleSearch}>Search</Button>
+         <Button onClick={handleSearch}>
+         {
+          loading ? `Loading...` : 'Search'
+         }
+         </Button>
       </div>
 
       {/* Courses Section */}

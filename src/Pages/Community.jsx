@@ -32,7 +32,7 @@ export default function Community() {
                 }
             })
             // console.log(res.data);
-            setPosts([...posts , res.data.post]);
+            setPosts([res.data.post , ...posts]);
             setContent('')
         }
         catch(err){
