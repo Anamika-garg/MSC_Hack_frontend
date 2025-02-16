@@ -14,7 +14,7 @@ const Testimonials = () => {
   {/* Testimonial Cards */}
   <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 mt-3 gap-6 px-4">
     {/* Testimonial 1 */}
-    <div className="bg-purple-100 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300">
+    <div className="bg-gray-100 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300">
       <div className="flex items-center mb-4">
         <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="John Smith" className="w-12 h-12 rounded-full" />
         <div className="ml-4">
@@ -29,7 +29,7 @@ const Testimonials = () => {
     </div>
 
     {/* Testimonial 2 */}
-    <div className="bg-purple-100 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300">
+    <div className="bg-gray-100 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300">
       <div className="flex items-center mb-4">
         <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Emily Johnson" className="w-12 h-12 rounded-full" />
         <div className="ml-4">
